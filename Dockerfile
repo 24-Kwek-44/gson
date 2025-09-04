@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 # Install Maven and update package index
-RUN apt-get update && apt-get install -y maven
+RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
 
 # Apply formatting fixes first
 RUN mvn spotless:apply
